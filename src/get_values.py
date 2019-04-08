@@ -1,5 +1,7 @@
-from colorama import Fore
+from colorama import Fore ,  init
 import getpass
+
+init(autoreset=True)
 
 def getData():
     login = input(Fore.CYAN + 'Enter your login: ')
