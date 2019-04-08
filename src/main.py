@@ -16,18 +16,18 @@ from colorama import Fore
 def main():
     args = parseIt()
 
-    if args.config and os.path.isfile('config.txt') == False:
+    if args.config and os.path.isfile('config.txt') is False:
         saveData()
     elif args.config and os.path.isfile('config.txt'):
         replace = input(Fore.RED + 'The config file exists, you needn`t do this. Replace the file?')
         if replace == 'y':
             saveData()
     elif os.path.isfile('config.txt'):
-        with open('config.txt' , 'r') as file:
+        with open('config.txt', 'r') as file:
             lines = file.readlines()
-            login = re.sub('\n' , '' , lines[0])
+            login = re.sub('\n', '', lines[0])
             password = lines[1]
-            getBalance(login , password)
+            getBalance(login, password)
 
 if __name__ == "__main__":
     main()
